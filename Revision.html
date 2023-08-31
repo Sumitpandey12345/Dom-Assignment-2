@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myInput" >
+    <button onclick="myButton()">Submit</button>
+    <p id="para">Entered value:</p>
+</body>
+<script>
+    let input= document.getElementById("myInput")
+    let para = document.getElementById("para")
+    function myButton()
+    {
+        alert(para.innerText+=" "+input.value)
+    }
+</script>
+</html>
