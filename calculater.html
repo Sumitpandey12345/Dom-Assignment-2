@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #head{
+            width: 80%;
+            height: 100px;
+            border: 0px solid red;
+            color: teal;
+            display: flex;
+            justify-content: center;
+            font-size: x-large;
+            margin: auto;
+        }
+        #main{
+            width: 400px;
+            height: 450px;
+            border: 0px solid black;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 100px;
+            padding-top: 20px;
+            box-shadow: rgba(100,100,111,0.2)0px 7px 29px 0px; 
+        }
+        .input{
+            width: 65%;
+            height: 70px;
+            margin: auto; 
+           margin-top: 30px;
+            border: 0px solid green;
+           box-shadow: rgba(100,100,111,0.2)0px 7px 29px 0px;
+           font-size: 2.5rem;
+           padding-top: 10px;
+           text-align: center;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,1fr);
+            gap: 5px;
+            height: 250px;
+            width: 65%;
+           margin: auto;
+           margin-top: 10px;
+            border: 0px solid blue;
+        }
+        .num,.equal{
+            background-color: white;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(100,100,111,0.2)0px 7px 29px 0px;
+        }
+        .sign{
+            background-color: black;
+            color: white;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(100,100,111,0.2)0px 7px 29px 0px;
+        }
+        .c{
+            background-color: red;
+            color: white;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            box-shadow: rgba(100,100,111,0.2)0px 7px 29px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h1>Masai Calculator</h1>
+    </div>
+    <div id="main">
+        <div class="input"></div>
+        <div id="container">
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="sign">+</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+            <div class="num">6</div>
+            <div class="sign">-</div>
+            <div class="num">7</div>
+            <div class="num">8</div>
+            <div class="num">9</div>
+            <div class="sign">*</div>
+            <div class="c">C</div>
+            <div class="num">0</div>
+            <div class="equal">=</div>
+            <div class="sign">/</div>
+        </div>
+    </div>
+</body>
+<script>
+    let numButton = document.getElementsByClassName("num")
+    let operatorButton = document.getElementsByClassName("sign")
+    let equalButton =  document.querySelector(".equal")
+    let clearButton = document.querySelector(".c")
+    let screen = document.querySelector(".input")
+    let firstnum = "";
+    let secondnum = "";
+    let operator = "";
+   for(let i=0;i<numButton.length;i++){
+    numButton[i].addEventListener("click",function(){
+        screen.innerText +=numButton[i].innerText
+    })
+   }
+   for(let i=0;i<operatorButton.length;i++){
+    operatorButton[i].addEventListener("click",function(){
+        operator=operatorButton[i].innerText
+        if(firstnum ==""){
+            firstnum +=screen.innerText
+            screen.innerText=""
+        } 
+    })
+   }
+   function calCulate(firstnum,operator,secondnum)
+   {
+    switch(operator){
+        case "+" :
+         return Number(firstnum) + Number(secondnum);
+         case "-" :
+         return Number(firstnum) - Number(secondnum);
+         case "*" :
+         return Number(firstnum) * Number(secondnum);
+         case "/" :
+         return Number(firstnum) / Number(secondnum) 
+    }
+   }
+   equalButton.addEventListener("click",function(){
+        secondnum = screen.innerText;
+        screen.innerText = calCulate(firstnum,operator,secondnum)
+    })
+    clearButton.addEventListener("click",function(){
+        screen.innerText=""
+        firstnum= "";
+        secondnum= "";
+        operator = "";
+    })
+</script>
+</html>
