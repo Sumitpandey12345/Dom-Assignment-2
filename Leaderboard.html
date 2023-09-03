@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #master{
+                width: 80%;
+                border: 0px solid red;
+                margin: auto;
+            }
+            #main{
+                display: flex;
+                justify-content: space-between;
+                width: 40%;
+                height: 150px;
+                border: 0px solid black;
+                margin: auto;
+            }
+            .min{
+                width: 100px;
+                height: 75px;
+                border: 2px solid rgb(39, 37, 37);
+                text-align: center;
+                padding-top: 30px;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: xx-large;
+                background-color: red;
+            }
+            .max{
+                width: 100px;
+                height: 75px;
+                border: 2px solid rgb(39, 37, 37);
+                text-align: center;
+                padding-top: 30px;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-size: xx-large;
+                background-color: rgb(15, 167, 15)  
+            }
+            .m{
+                font-size: 2rem;
+                text-align: center;
+                
+               
+            }
+            .s{
+                text-align: center;
+                font-size: 2rem;
+                
+            }
+           #display{
+             display: flex;
+             text-align: center;
+             margin: auto;
+             margin-top: 20px;
+             font-size: 1.5rem;
+             padding-bottom: 10px;
+             background-color: rgb(134, 114, 114);
+           }
+           #container{
+            width: 40%;
+            display: grid;
+            gap: 20px;
+            grid-template-rows: repeat(3,1fr);
+            grid-template-columns: repeat(3,1fr);
+            margin: auto;
+            margin-top: 20px;
+           }
+           #container>button{
+            font-size: 50px
+           }
+           .green{
+            background-color: rgb(6, 83, 6);
+           }
+           .orange{
+            background-color: orange;
+           }
+           .zero{
+           display: grid;
+           font-size: 50px;
+           margin: auto;
+           margin-top: 20px;
+           padding-left: 50px;
+           padding-right: 50px;
+          background-color: rgb(75, 18, 129);
+          color: aliceblue;
+           }
+           .enter{
+          display: grid;
+            text-align: center;
+            margin: auto;
+            font-size: 50px;
+            background-color: rgb(8, 5, 10);
+            color: aliceblue;
+            width: 300px;
+            margin-top: 20px;
+           }
+        </style>
+    </head>
+    <body>
+        <div id="master">
+            <div id="main">
+                <div>
+                    <div class="min">43</div>
+                    <h2 class="m">Min</h2>
+                </div>
+                <div>
+                    <div class="max">2019</div>
+                    <h2 class="m">Max</h2>
+                </div>
+
+            </div>
+            <h2 class="s">Score</h2>
+            <input type="number"id="display">
+            <div id="container">
+                <button class="green">1</button>
+                <button class="orange">2</button>
+                <button class="green">3</button>
+                <button  class="orange">4</button>
+                <button  class="orange">5</button>
+                <button  class="orange">6</button>
+                <button class="green">7</button>
+                <button class="orange">8</button>
+                <button class="green">9</button>
+            </div>
+            <button class="zero">0</button>
+            <div class="enter">Enter</div>
+        </div>
+    </body>
+    <script>
+        let display=document.getElementById("display")
+     let num = document.querySelectorAll("button")
+     for(let i=0;i<num.length;i++){
+        num[i].addEventListener("click",function(){
+      display.value += num[i].innerText
+    })
+     }
+     let enter = document.querySelector(".enter")
+     let min=document.querySelector(".min")
+     let max=document.querySelector(".max")
+    enter.addEventListener("click",function(){
+        if(+display.value < +min.innerText){
+        min.innerText=display.value
+        display.value=""
+    }else if(+display.value > +max.innerText){
+        max.innerText=display.value
+        display.value=""
+    }
+    })
+    </script>
+</html>
