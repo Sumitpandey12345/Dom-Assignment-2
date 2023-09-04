@@ -142,7 +142,7 @@
      let min=document.querySelector(".min")
      let max=document.querySelector(".max")
     enter.addEventListener("click",function(){
-        if(+display.value < +min.innerText){
+        if(+display.value < +min.innerText && display.value!==""){
         min.innerText=display.value
         display.value=""
     }else if(+display.value > +max.innerText){
