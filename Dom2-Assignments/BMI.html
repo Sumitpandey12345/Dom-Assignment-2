@@ -12,12 +12,29 @@
    <input type="number" id="weight">
    <h3><b>And your hight is here in (CM)</b></h3>
    <input type="number" id="hight">
-   <h1 id="screen"></h1>
+   <h1 id="screen"></h1><br>
    <button onclick="myFunction()">Calculate BMI</button>
    
 </body>
 <script>
  let screen = document.getElementById("screen")
+ let input1 = document.getElementById("weight")
+ let input2 = document.getElementById("hight")
+ function myFunction(){
+    let bmi = +input1.value / ((+input2.value/100) **2)
+    if(bmi<=18.4){
+        screen.innerText="Your BMI is "+ bmi.toFixed(1)+" which means you are Underweigth"
+    }
+    else if(bmi>=18.5 && bmi<=24.9){
+        screen.innerText=`Your BMI is ${bmi.toFixed(1)} which means you are Normal weight`
+    }
+    else if(bmi>=25 && bmi<=29.9){
+        screen.innerText="Your BMI is "+ bmi.toFixed(1)+" which means you are Over weight" 
+    
+    }else{
+        screen.innerText="Your BMI is "+ bmi.toFixed(1)+" which means you are Obese"
+    }
+ }
 </script>
 </html>
 
