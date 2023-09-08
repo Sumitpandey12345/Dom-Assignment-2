@@ -1,0 +1,65 @@
+/* Fill CSS here */
+h1 {
+    color: #095a99;
+    margin: 50px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+table {
+    height: 100%;
+}
+
+form {
+    width: 25%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 20px 40px 20px 20px;
+}
+
+form> :last-child {
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #095a99;
+    color: white;
+    padding: 10px;
+}
+
+form,
+input,
+select {
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+input {
+    width: 90%;
+}
+
+select {
+    width: 98%
+}
+
+thead {
+    background-color: #095a99;
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+h1+div {
+    display: flex;
+    justify-content: space-around;
+}
+
+td {
+    text-align: center;
+}
+
+td>button {
+    background-color: red;
+}
