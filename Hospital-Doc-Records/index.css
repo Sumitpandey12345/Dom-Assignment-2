@@ -1,0 +1,67 @@
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+  height: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+h1{
+  text-align: center;
+  color: #095a99;
+  text-decoration: underline;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+h1 + div{
+  display: flex;
+  justify-content: space-around;
+}
+form {
+  width: 25%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 20px 40px 20px 20px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+thead{
+  background-color: #095a99;
+  color: white;
+  padding: 10px;
+}
+td{
+  padding: 10px;
+  text-align: center;
+}
+form,
+input,
+select {
+    font-size: 1.1rem;
+    padding: 10px;
+}
+input{
+  width: 90%;
+}
+select{
+  width: 97%;
+}
+form > :last-child{
+  background-color: #095a99;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding-bottom: 10px; 
+  margin-top: 10px;
+  width: 98%;
+}
+td > button{
+  background-color: red;
+}
