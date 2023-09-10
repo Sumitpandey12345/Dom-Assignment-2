@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function BankAccount(accNo,name,type,balance)
+    {
+        this.accNo = accNo;
+        this.name = name;
+        this.type = type;
+        this.balance = balance;
+        this.active = true;
+    }
+    BankAccount.prototype.deposite= function(amount){
+        if(amount>0){
+            this.balance+=amount
+            console.log("Deposite"+amount+".New balance"+this.balance)
+        }else{
+            console.log("Invalid amount")
+        }
+    }
+    BankAccount.prototype.withdraw = function(amount){
+        if(this.active==true && this.balance>=amount){
+            this.balance-=amount
+            console.log(`withdraw ${amount}. New balance ${this.balance}`)
+        }else{
+            console.log("Insufficient balance")
+        }
+    }
+    function grandTotal(accounts){
+        let total = 0;
+       for(let key of accounts){
+        if(key.active==true){
+            total+=key.balance
+        }
+       }
+       return total;
+    }
+    let account1 = new BankAccount(789456123,"sumit","current",20000)
+    let account2 = new BankAccount(989456123,"sid","savings",20000)
+    let account3 = new BankAccount(489456123,"rahul","savings",2000)
+    let account4 = new BankAccount(389456123,"vinit","savings",10000)
+    let account5 = new BankAccount(189456123,"amit","savings",2000)
+    account3.active=false 
+    account1.withdraw(5000)
+    account4.deposite(1000)
+    let arr = [account1,account2,account3,account4,account5]
+    let totalAmount = grandTotal(arr)
+    console.log(totalAmount)
+   
+</script>
+</html>
