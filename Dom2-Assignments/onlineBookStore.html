@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Author(name,birthyear,nationality)
+    {
+        this.name=name;
+        this.birthyear=birthyear;
+        this.nationality=nationality;
+    }
+    let author1 = new Author("Kanaad",+800+"Bc","Bhartiya")
+    let author2 = new Author("Bramhgupt",+1000+"Bc","Bhartiya")
+    let author3 = new Author("AaryaBhhat",+500+"Bc","Bhartiya")
+    let author4 = new Author("Shushurut",+1000+"Bc","Bhartiya")
+    let author5 = new Author("Bhashkaracharya",+1200+"Bc","Indian")
+
+    function Book(title,authors,genre,price)
+    {
+        this.title=title;
+        this.Author = authors.name;
+        this.genre = genre;
+        this.price = price;
+        this.getBookInfo = function(){
+            return "Book Title : " + this.title+"\n"+
+                    "Author Name : " +this.Author+"\n"+
+                    "Genre Name : " +this.genre+"\n"+
+                    "Price : " +this.price
+        }
+    }
+    function onlineStore(...books){
+        for(let book of books){
+             console.log(book.getBookInfo())
+        }
+    }
+    let book1 = new Book("Structure of atom",author1,"science","free")
+    let book2 = new Book("Structure of zero",author2,"science","free")
+    let book3 = new Book("Structure of motion",author3,"science","free")
+    let book4 = new Book("Structure of surgury",author4,"medical","free")
+    let book5 = new Book("Structure of gravity",author5,"science","free")
+
+    onlineStore(book1, book2, book3, book4, book5)
+</script>
+</html>
