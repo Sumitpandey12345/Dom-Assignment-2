@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Vehicle(brandName,modleName,speed,fuleType)
+        {
+            this.brand = brandName;
+            this.modle = modleName;
+            this.speed = speed
+            this.fule = fuleType
+        }
+        Vehicle.prototype.accelerate = function(increase){
+           this.speed+=increase;
+           return this.speed
+        }
+        Vehicle.prototype.brake = function(increase){
+           this.speed-=increase;
+           return this.speed
+        }
+        Vehicle.prototype.refule = function(){
+            return `${this.modle} is refuleing`
+        }
+       
+
+        function Car(brandName,modleName,speed,fuleType,numberOfWheels){
+            Vehicle.call(this,brandName,modleName,speed,fuleType,numberOfWheels)
+            this.wheels = numberOfWheels;
+        }
+        Car.prototype.honk = function(){
+            return `${this.modle} is honking`
+        }
+        Object.setPrototypeOf(Car.prototype,Vehicle.prototype)
+        let car1 = new Car("BMW","BMW 440v",200,"petrol",4)
+       console.log(car1)
+       let bike1 = new Vehicle("Apachi","Apachi 200",150,"cng")
+       console.log(bike1)
+
+       function Airplane(brandName,modleName,speed,fuleType,numberOfWheels,numberOfEngines,hasLandingGear){
+        Vehicle.call(this,brandName,modleName,speed,fuleType,numberOfWheels,numberOfEngines,hasLandingGear)
+        this.engins = numberOfEngines;
+        this.gears = hasLandingGear;
+       }
+       Airplane.prototype.takeOff = function(){
+        return "the airplane is taking off."
+       }
+       Airplane.prototype = Object.create(Vehicle.prototype)
+       let aero1 = new Airplane("Air india","Air india 404",400,"petrol",5,2,6)
+       console.log(aero1)
+       console.log(aero1.accelerate(100))
+    </script>
+</body>
+</html>
