@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+   let ConvertLetter = (letter) => {
+      return letter.toLowerCase()
+   }
+   let ConvertWord = (arr) =>{
+    for(let i=0;i<arr.length;i++){
+        let newArr = "";
+        for(let j=0;j<arr[i].length;j++){
+            newArr += ConvertLetter(arr[i][j])
+        }
+        arr[i] = newArr
+    }
+    return arr
+   }
+
+
+    let words = ["MA", "SA", "I", "SCH", "OOL"]
+   console.log(ConvertWord(words))
+</script>
+</html>
